@@ -1,5 +1,5 @@
-{% render 'partials/head.liquid'
-  , title: 'Lessons' %}
+{% comment %} {% render 'partials/head.liquid'
+  , title: 'Lessons' %} {% endcomment %}
 
 <main>
   <h1>Lessons</h1>
@@ -36,7 +36,7 @@
         <li>No playlists found.</li>
       {% endfor %}
 
-      <li class="add-playlist">
+      <li>
         <a href="">
           <img
             class="plus"
@@ -85,7 +85,8 @@
     <ul>
       {% for playlist in likedPlaylists %}
         {% render 'partials/playlist-card.liquid'
-          , playlist: playlist %}
+          , playlist: playlist
+          , action: "unlike" %}
       {% else %}
         <li>No playlists found.</li>
       {% endfor %}
@@ -100,7 +101,8 @@
     <ul>
       {% for playlist in suggestedPlaylists %}
         {% render 'partials/playlist-card.liquid'
-          , playlist: playlist %}
+          , playlist: playlist
+          , action: "like" %}
       {% else %}
         <li>No playlists found.</li>
       {% endfor %}
