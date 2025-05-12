@@ -58,6 +58,33 @@ app.get('/lessons', async function (request, response) {
     likedPlaylists: likedPlaylists,
     yourPlaylists: yourPlaylists
   });
+});
+
+app.post(`/:profile/:playlist/like`, async function (req, res) {
+  await fetch(`${baseURL}likes`, {
+    method: 'POST',
+    body: JSON.stringify({
+      profile: defaultProfile,
+      playlist: req.params.playlist,
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  });
+
+  res.redirect(303, '/lessons');
+});
+
+app.post('/:profile/:playlist/unlike', async function (req, res) {
+  const like = await fetch(`${baseURL}likes?filter[_and][0][profile][_eq]=${defaultProfile}&filter[_and][1][playlist][_eq]=${req.params.playlist}`);
+  const likeJSON = await like.json();
+  const likeID = likeJSON.data[0].id;
+
+  await fetch(`${baseURL}likes/${likeID}`, {
+    method: 'DELETE'
+  });
+
+  res.redirect(303, '/lessons');
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
