@@ -13,11 +13,13 @@
 
   <p>{{ playlist.playtime }}</p>
 
-  <form action="/124/{{ playlist.id }}/like">
-    <button type="submit">Like</button>
-  </form>
-
-  <form action="/124/{{ playlist.id }}/unlike">
-    <button type="submit">Unlike</button>
-  </form>
+  {% if action == "like" %}
+    <form method="post" action="/124/{{ playlist.id }}/like">
+      <button type="submit">Like</button>
+    </form>
+  {% elsif action == "unlike" %}
+    <form method="post" action="/124/{{ playlist.id }}/unlike">
+      <button type="submit">Unlike</button>
+    </form>
+  {% endif %}
 </li>
