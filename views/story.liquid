@@ -1,0 +1,17 @@
+{% render 'partials/head.liquid'
+  , title: 'Lessons' %}
+
+<main>
+  <a href="/lessons">Back</a>
+  <label><input type="checkbox">Night mode</label>
+
+  <picture>
+    <img src="https://fdnd-agency.directus.app/assets/{{ story.image.id | default: "" }}" alt="{{ story.image.title }}">
+  </picture>
+
+  <p>{{ story.audio[0].transcript | default: "No audio found." }}</p>
+
+  <audio controls src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].audio_file }}"></audio>
+</main>
+
+{% render 'partials/foot.liquid' %}
