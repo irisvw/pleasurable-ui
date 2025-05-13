@@ -1,0 +1,198 @@
+/* FONTS */
+@font-face {
+    font-family: "Poppins";
+    font-weight: normal;
+    src: url("../assets/fonts/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-weight: bold;
+    src: url("../assets/fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+/* COLORS */
+:root {
+    /* Background colors */
+    --background-method: linear-gradient(in hsl to bottom, #471871, #142151);
+    --background-statistics: linear-gradient(in hsl to bottom, #219B9B, #1B7070);
+    --background-testing: linear-gradient(in hsl to bottom, #21599B, #1B3D70);
+    --background-profile: linear-gradient(in hsl to bottom, #F0775D, #B45751);
+
+    /* Method colors */
+    --background-home: linear-gradient(in hsl to bottom, #3F93B7, #1C5872);
+    --background-story-night: linear-gradient(in hsl to bottom, #040404, #471871);
+
+    /* Theme colors */
+    --lessons-primary: #9264F4;
+    --confirm-primary: #27B16F;
+    --deny-primary: #D51D1D;
+
+    /* Box shadows */
+    --box-shadow-standard: box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+body {
+    --border-radius: 0.5rem;
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    
+    --font-size-xl: 2rem;
+    --font-size-l: 1.5rem;
+    --font-size-m: 1rem;
+    
+    --font-weight-bold: 700;
+    --font-weight-normal: 500;
+    --font-weight-light: 300;
+}
+
+/* Buttons */
+.button-standard,
+.button-round,
+.button-square,
+.button-wide,
+.button-icon {
+    display: inline-block;
+    padding: .5rem;
+    border: none;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    cursor: default;
+
+    /* Different colors you can apply to the buttons */
+    &.purple {
+        color: white;
+        background-color: var(--lessons-primary);
+    }
+
+    &.green {
+        color: white;
+        background-color: var(--confirm-primary);
+    }
+
+    &.red {
+        color: white;
+        background-color: var(--deny-primary);
+    }
+
+    &:hover {
+        outline: 2px solid black;
+    }
+}
+
+/* A big round button */
+.button-round {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+
+    >img,
+    >svg {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/* A big square button */
+.button-square {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+
+    >img,
+    >svg {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/* A button that takes up the entire width of the screen */
+.button-wide {
+    width: 100%;
+    text-align: center;
+}
+
+/* A button that contains an icon */
+.button-icon {
+    >img,
+    >svg {
+        vertical-align: bottom;
+        height: 1.5rem;
+        max-width: 1.5rem;
+    }
+}
+
+/* Searchbox */
+.searchbox {    
+    display: grid;
+    grid-template-columns: 1fr min-content;
+
+    label {
+        display: grid;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        font-family: var(--font-primary);
+    }
+
+    input {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        appearance: none;
+        border: none;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+        background-color: white;
+        font-family: var(--font-primary);
+        color: black;
+        padding: .8em;
+        align-self: center;
+    }
+
+    span {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+
+        color: rgba(0, 0, 0, 0.6);
+        transition: all .25s;
+        margin-left: .5em;
+        align-self: center;
+    }
+
+    input:focus+span,
+    input:not(:placeholder-shown)+span {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1 / 1;
+
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+
+        background-color: white;
+        border: none;
+        border-left: 1px solid rgba(0, 0, 0, 0.6);
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+
+        margin: 0;
+        padding: .5em;
+        
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        >img {
+            height: 1.5em;
+        }
+    }
+}
