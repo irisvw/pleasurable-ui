@@ -1,0 +1,11 @@
+        <form method="GET" action="/playlist" class="search-container">
+            <label for="searchBar">Search Playlists</label>
+            <input
+                type="text"
+                id="searchBar"
+                name="q"
+                value="{{ request.params.q }}"
+                placeholder="Search playlists..."
+            />
+            <button type="submit">Search</button>
+        </form>
