@@ -1,0 +1,111 @@
+{% comment %} {% render 'partials/head.liquid'
+  , title: 'Lessons' %} {% endcomment %}
+
+<main>
+  <h1>Lessons</h1>
+  <ol>
+    <li>Listening</li>
+    <li>First words</li>
+  </ol>
+
+  <section>
+    <h2>
+      <a href="">Recommended Stories</a>
+    </h2>
+
+    <ul>
+      {% for story in stories %}
+        {% render 'partials/story-card.liquid'
+          , story: story %}
+      {% else %}
+        <p>No stories found.</p>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <a href="">Your Playlists</a>
+    </h2>
+
+    <ul>
+      {% for playlist in yourPlaylists %}
+        {% render 'partials/playlist-card.liquid'
+          , playlist: playlist %}
+      {% else %}
+        <li>No playlists found.</li>
+      {% endfor %}
+
+      <li>
+        <a href="">
+          <img
+            class="plus"
+            src="assets/times.svg"
+            alt=""
+            height="144">
+        </a>
+        <h3>Make a playlist!</h3>
+        <p>Add your favorite stories in one playlist.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <a href="">All Stories</a>
+    </h2>
+
+    <ul>
+      <li>
+        <a href="/stories/filter?language=1">English</a>
+      </li>
+      <li>
+        <a href="/stories/filter?language=2">Dutch</a>
+      </li>
+      <li>
+        <a href="/stories">View All</a>
+      </li>
+    </ul>
+
+    <ul>
+      {% for story in stories %}
+        {% render 'partials/story-card.liquid'
+          , story: story %}
+      {% else %}
+        <p>No stories found.</p>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <a href="">Liked Playlists</a>
+    </h2>
+
+    <ul>
+      {% for playlist in likedPlaylists %}
+        {% render 'partials/playlist-card.liquid'
+          , playlist: playlist
+          , action: "unlike" %}
+      {% else %}
+        <li>No playlists found.</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <a href="">Suggested Playlists</a>
+    </h2>
+
+    <ul>
+      {% for playlist in suggestedPlaylists %}
+        {% render 'partials/playlist-card.liquid'
+          , playlist: playlist
+          , action: "like" %}
+      {% else %}
+        <li>No playlists found.</li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>

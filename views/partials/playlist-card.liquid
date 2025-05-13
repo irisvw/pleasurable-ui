@@ -1,0 +1,25 @@
+<li>
+  <h3>
+    <a href="lessons/playlist/{{ playlist.id }}">{{ playlist.title }}</a>
+  </h3>
+
+  <picture>
+    <img
+      src="https://fdnd-agency.directus.app/assets/{{ playlist.image.id | default: "" }}"
+      alt=""
+      height="144"
+      width="144">
+  </picture>
+
+  <p>{{ playlist.playtime }}</p>
+
+  {% if action == "like" %}
+    <form method="post" action="/124/{{ playlist.id }}/like">
+      <button type="submit">Like</button>
+    </form>
+  {% elsif action == "unlike" %}
+    <form method="post" action="/124/{{ playlist.id }}/unlike">
+      <button type="submit">Unlike</button>
+    </form>
+  {% endif %}
+</li>

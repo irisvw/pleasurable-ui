@@ -9,7 +9,7 @@ import { Liquid } from 'liquidjs';
 const app = express()
 
 // Maak werken met data uit formulieren iets prettiger
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
 // Bestanden in deze map kunnen dus door de browser gebruikt worden
@@ -23,9 +23,68 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+// Variables
+const baseURL = "https://fdnd-agency.directus.app/items/tm_";
+const defaultProfile = 124;
 
 app.get('/', async function (request, response) {
   response.render('index.liquid')
+})
+
+app.get('/lessons', async function (request, response) {
+  let stories = await fetch(`${baseURL}story?fields=*.*`);
+  let playlists = await fetch(`${baseURL}playlist?fields=creator,id,title,image.*`);
+  let likes = await fetch(`${baseURL}likes?fields=playlist&filter[_and][0][profile][id][_eq]=${defaultProfile}&filter[_and][1][playlist][_nnull]`);
+
+  let storiesJSON = await stories.json();
+  let playlistsJSON = await playlists.json();
+  let likesJSON = await likes.json();
+
+  // convert array of objects to array of values
+  let likesArray = likesJSON.data.map(a => a.playlist);
+
+  // sort playlists
+  let playlistsArray = playlistsJSON.data;
+  // for each playlist, check if the creator matches the defaultProfile
+  const yourPlaylists = playlistsArray.filter((playlist) => playlist.creator == defaultProfile);
+  // for each playlist, check if the id is featured in the likesArray
+  const likedPlaylists = playlistsArray.filter((playlist) => likesArray.includes(playlist.id));
+  // for each playlist, check if the id is NOT featured in the likesArray
+  const suggestedPlaylists = playlistsArray.filter((playlist => !likesArray.includes(playlist.id)));
+
+  response.render('lessons.liquid', {
+    stories: storiesJSON.data,
+    suggestedPlaylists: suggestedPlaylists,
+    likedPlaylists: likedPlaylists,
+    yourPlaylists: yourPlaylists
+  });
+});
+
+app.post(`/:profile/:playlist/like`, async function (req, res) {
+  await fetch(`${baseURL}likes`, {
+    method: 'POST',
+    body: JSON.stringify({
+      profile: defaultProfile,
+      playlist: req.params.playlist,
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  });
+
+  res.redirect(303, '/lessons');
+});
+
+app.post('/:profile/:playlist/unlike', async function (req, res) {
+  const like = await fetch(`${baseURL}likes?filter[_and][0][profile][_eq]=${defaultProfile}&filter[_and][1][playlist][_eq]=${req.params.playlist}`);
+  const likeJSON = await like.json();
+  const likeID = likeJSON.data[0].id;
+
+  await fetch(`${baseURL}likes/${likeID}`, {
+    method: 'DELETE'
+  });
+
+  res.redirect(303, '/lessons');
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren

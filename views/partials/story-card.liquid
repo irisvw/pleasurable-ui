@@ -1,0 +1,16 @@
+<li>
+  <h3>
+    <a href="lessons/story/{{ story.id }}">{{ story.title }}</a>
+  </h3>
+
+  <picture>
+    <img
+      src="https://fdnd-agency.directus.app/assets/{{ story.image.id | default: "" }}"
+      alt="{{ story.image.title }}"
+      height="80"
+      width="80">
+  </picture>
+
+  <p>{{ story.language.language }}</p>
+  <p>{{ story.playtime }}</p>
+</li>
