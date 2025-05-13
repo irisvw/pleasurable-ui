@@ -9,19 +9,24 @@
     <img src="https://fdnd-agency.directus.app/assets/{{ story.image.id | default: "" }}" alt="{{ story.image.title }}">
   </picture>
 
-  <p class="previous-subtitle"></p>
-  <p class="subtitle"></p>
 
-  <audio
-    controls
-    crossorigin="anonymous"
-    src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].audio_file }}">
-    <track
-      default
-      kind="captions"
-      srclang="en"
-      src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].transcript_file }}" />
-  </audio>
+  {% if story.audio[0].audio_file %}
+    <p class="previous-subtitle"></p>
+    <p class="subtitle"></p>
+
+    <audio
+      controls
+      crossorigin="anonymous"
+      src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].audio_file }}">
+      <track
+        default
+        kind="captions"
+        srclang="en"
+        src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].transcript_file }}" />
+    </audio>
+  {% else %}
+    <p>No audio was found for this story.</p>
+  {% endif %}
 </main>
 
 <script>
