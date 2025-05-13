@@ -1,3 +1,9 @@
+{% include 'partials/head.liquid' %}
+<body>
+    <div class="header">
+        <h1>All stories</h1>
+        
+        <!-- works without JS -->
         <form method="GET" action="/playlist" class="search-container">
             <label for="searchBar">Search Playlists</label>
             <input
@@ -9,12 +15,15 @@
             />
             <button type="submit">Search</button>
         </form>
+        
         <div class="filters">
             <button class="animal">animal</button>
             <button class="season">season</button>
             <button class="language">language</button>
             <button class="sorting">sorting</button>
         </div>
+    </div>
+
     <div id="playlistList">
         {% for playlist in playlists %}
         <div class="playlist-card" data-name="{{ playlist.name | downcase }}" data-lang="{{ playlist.language }}">
@@ -29,10 +38,12 @@
                 <h2>{{ playlist.name }}</h2>
                 <p>{{ playlist.description }}</p>
             </div>
+
             <!-- Play Button -->
             <button class="play-button">
                 Play {{ playlist.name }}
             </button>
+
             <!-- Like Button -->
             <form method="POST" action="/like/{{ playlist.id }}" class="like-form">
                 <button type="submit" class="like-button">
@@ -45,3 +56,8 @@
                 </button>
             </form>
         </div>
+        {% endfor %}
+    </div>
+
+    {% include 'partials/foot.liquid' %}
+</body>
