@@ -63,7 +63,8 @@ body {
 .button-round,
 .button-square,
 .button-wide,
-.button-icon {
+.button-icon,
+.button-scroll {
     display: inline-block;
     padding: .5rem;
     border: none;
@@ -157,6 +158,33 @@ body {
         vertical-align: bottom;
         height: 1.5rem;
         max-width: 1.5rem;
+    }
+}
+
+/* Scroll buttons for navigating through the story overview */
+.button-scroll {
+    padding: .5rem 1rem;
+    font-size: 2rem;
+    line-height: .75;
+
+    &.purple {
+        background-color: var(--menu-lessons-primary);
+
+        &:disabled {
+            background-color: var(--menu-lessons-secondary);
+        }
+    }
+
+    &.blue {
+        background-color: var(--menu-home-primary);
+
+        &:disabled {
+            background-color: var(--menu-home-secondary);
+        }
+
+        &:disabled:hover {
+            outline: none;
+        }
     }
 }
 
