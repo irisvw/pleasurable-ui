@@ -97,6 +97,62 @@ body {
         box-shadow: var(--box-shadow-standard);
     }
 
+    /* Different menu colors for the navigation buttons */
+    &.menu-home {
+        color: white;
+        background-color: var(--menu-home-primary);
+
+        &:hover,
+        &:active {
+            background-color: var(--menu-home-secondary);
+        }
+    }
+
+    &.menu-testing {
+        color: white;
+        background-color: var(--menu-testing-primary);
+
+        &:hover,
+        &:active {
+            background-color: var(--menu-testing-secondary);
+        }
+    }
+
+    &.menu-lessons {
+        color: white;
+        background-color: var(--menu-lessons-primary);
+
+        &:hover,
+        &:active {
+            background-color: var(--menu-lessons-secondary);
+        }
+    }
+
+    &.menu-statistics {
+        color: white;
+        background-color: var(--menu-statistics-primary);
+
+        &:hover,
+        &:active {
+            background-color: var(--menu-statistics-secondary);
+        }
+    }
+
+    &.menu-profile {
+        color: white;
+        background-color: var(--menu-profile-primary);
+
+        &:hover,
+        &:active {
+            background-color: var(--menu-profile-secondary);
+        }
+    }
+
+    &.menu-overlay {
+        color: white;
+        background-color: var(--menu-layover);
+    }
+
     /* Use for icon buttons without background */
     &.transparent {
         background-color: transparent;
