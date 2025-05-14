@@ -24,6 +24,8 @@
         srclang="en"
         src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].transcript_file }}" />
     </audio>
+
+    <progress max="100" value="60">60%</progress>
   {% else %}
     <p>No audio was found for this story.</p>
   {% endif %}
