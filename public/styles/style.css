@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+}
+
+body.lessons {
+    /* fallback */
+    background-color: #471871;
+    background-color: var(--background-method);
+}
+
+.playlist-card-vertical {
+    list-style: none;
+    background-color: white;
+    color: black;
+
+    display: grid;
+    grid-template-areas:
+    "image image"
+    "title title"
+    "playtime form";
+
+    height: 18rem;
+    width: 11rem;
+    padding: 1rem;
+
+    >picture {
+        grid-area: image;
+        object-fit: cover;
+    }
+
+    >h3 {
+        grid-area: title;
+        height: 2lh;
+    }
+
+    p {
+        grid-area: playtime;
+    }
+
+    form {
+        grid-area: form;
+        justify-self: end;
+    }
+}
