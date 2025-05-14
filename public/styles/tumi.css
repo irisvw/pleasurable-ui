@@ -96,6 +96,11 @@ body {
         box-shadow: var(--box-shadow-standard);
     }
 
+    /* Use for icon buttons without background */
+    &.transparent {
+        background-color: transparent;
+    }
+
     /* The border indicates where the user is currently located. To be used in navigation */
     &.current {
         --border-width: 4px;
