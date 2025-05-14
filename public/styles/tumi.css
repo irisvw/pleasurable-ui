@@ -185,6 +185,7 @@ body {
 
     button {
         display: flex;
+        align-self: stretch;
         align-items: center;
         justify-content: center;
         aspect-ratio: 1 / 1;
