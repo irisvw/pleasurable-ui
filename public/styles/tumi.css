@@ -72,6 +72,7 @@ body {
     text-decoration: none;
     border-radius: var(--border-radius);
     cursor: default;
+    min-width: max-content;
 
     /* Different colors you can apply to the buttons */
     &.purple {
