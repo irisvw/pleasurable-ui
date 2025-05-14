@@ -18,8 +18,6 @@
     --background-statistics: linear-gradient(in hsl to bottom, #219B9B, #1B7070);
     --background-testing: linear-gradient(in hsl to bottom, #21599B, #1B3D70);
     --background-profile: linear-gradient(in hsl to bottom, #F0775D, #B45751);
-
-    /* Method colors */
     --background-home: linear-gradient(in hsl to bottom, #3F93B7, #1C5872);
     --background-story-night: linear-gradient(in hsl to bottom, #040404, #471871);
 
@@ -27,6 +25,19 @@
     --lessons-primary: #9264F4;
     --confirm-primary: #27B16F;
     --deny-primary: #D51D1D;
+
+    /* Menu colors */
+    --menu-home-primary: #3F92B6;
+    --menu-home-secondary: #3D7A95;
+    --menu-testing-primary: #599AE7;
+    --menu-testing-secondary: #4D7EB7;
+    --menu-lessons-primary: #954BE2;
+    --menu-lessons-secondary: #451ACF;
+    --menu-statistics-primary: #06A192;
+    --menu-statistics-secondary: #078377;
+    --menu-profile-primary: #FD8C73;
+    --menu-profile-secondary: #EA775E;
+    --menu-layover: #292929bf;
 
     /* Box shadows */
     --box-shadow-standard: rgb(173 173 173 / 50%) 0px 2px 4px 1px;
