@@ -29,7 +29,7 @@
     --deny-primary: #D51D1D;
 
     /* Box shadows */
-    --box-shadow-standard: box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --box-shadow-standard: rgb(173 173 173 / 50%) 0px 2px 4px 1px;
 }
 
 body {
@@ -76,6 +76,19 @@ body {
     &.red {
         color: white;
         background-color: var(--deny-primary);
+    }
+
+    &.white {
+        color: black;
+        background-color: white;
+        box-shadow: var(--box-shadow-standard);
+    }
+
+    /* The border indicates where the user is currently located. To be used in navigation */
+    &.current {
+        --border-width: 4px;
+        border: var(--border-width) solid white;
+        padding: calc(.5rem - var(--border-width));
     }
 
     &:hover {
