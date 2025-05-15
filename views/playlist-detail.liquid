@@ -14,3 +14,6 @@
         
         {% if playlist.image %}
         <img src="https://fdnd-agency.directus.app/assets/{{ playlist.image }}?width=112&height=95" alt="image-of {{ playlist.name }}">
+        {% else %}
+        <img src="/assets/penguin.png" alt="default-image"> 
+        {% endif %} 
