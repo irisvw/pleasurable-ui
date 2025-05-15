@@ -4,12 +4,40 @@
 
 body {
     font-family: var(--font-primary);
+    color: white;
 }
 
 body.lessons {
     /* fallback */
-    background-color: #471871;
-    background-color: var(--background-method);
+    background: #471871;
+    background: var(--background-method);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1 {
+    width: max-content;
+    margin: 1rem auto;
+}
+
+
+h2 {
+    padding-inline-start: 1rem;
+    min-width: max-content;
 }
 
 .playlist-card-vertical {
