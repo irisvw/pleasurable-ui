@@ -40,6 +40,35 @@ h2 {
     min-width: max-content;
 }
 
+/* The "progress bar" on the lessons overview page */
+ol.progress {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    padding-inline: 45vw;
+
+    li {
+        width: clamp(15rem, 60vw, 40rem);
+        flex-shrink: 0;
+        border-radius: var(--border-radius);
+        list-style-position: inside;
+        padding: .5rem 1rem;
+        scroll-snap-align: center;
+    }
+
+    li:nth-of-type(1) {
+        background-color: #139943;
+    }
+
+    li:nth-of-type(2) {
+        background-color: #37C6AB;
+    }
+}
+
 /* Styles all cards have in common */
 .playlist-card-vertical,
 .story-card-horizontal {
