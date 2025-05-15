@@ -8,3 +8,6 @@
 
     <section class="section-title">recommended</section>
 
+    <section id="playlist">
+      {% for playlist in playlists %}
+      <article class="playlist-card" data-name="{{ playlist.name | downcase }}" data-lang="{{ playlist.language }}">
