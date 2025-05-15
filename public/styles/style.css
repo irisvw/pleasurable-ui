@@ -139,3 +139,30 @@ ol.progress {
         justify-self: end;
     }
 }
+
+.list-grid,
+.list-horizontal {
+    gap: .5rem;
+    padding-inline-start: 1rem;
+    list-style: none;
+
+    overflow-x: scroll;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.list-grid {
+    display: grid;
+    grid-template-rows: repeat(3, max-content);
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    scroll-snap-type: x mandatory;
+}
+
+.list-horizontal {
+    display: flex;
+    flex-direction: row;
+}
