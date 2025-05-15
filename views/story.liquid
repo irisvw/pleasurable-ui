@@ -1,42 +1,151 @@
 {% render 'partials/head.liquid'
   , title: 'Lessons' %}
 
-<main>
-  <a href="/lessons">Back</a>
-  <label><input type="checkbox">Night mode</label>
+{% comment %} TEMPORARY {% endcomment %}
+<link rel="stylesheet" href="/styles/style.css">
+<link rel="stylesheet" href="/styles/tumi.css">
 
-  <picture>
-    <img src="https://fdnd-agency.directus.app/assets/{{ story.image.id | default: "0e52b9bc-fc22-415b-a102-4b7af0e18442" }}" alt="{{ story.image.title }}">
-  </picture>
+<body class="lessons">
+  {% comment %} END TEMPORARY {% endcomment %}
 
+  <main class="active-story">
+    <header>
+      <a href="/lessons" class="button-icon">
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none">
+          <path
+            stroke="#FFFFFF"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l-7 7 7 7" />
+        </svg>
+        Back</a>
 
-  {% if story.audio[0].audio_file %}
-    <p class="previous-subtitle"></p>
-    <p class="subtitle"></p>
+      <label><input type="checkbox">Night mode</label>
+    </header>
 
-    <audio
-      controls
-      crossorigin="anonymous"
-      src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].audio_file }}">
-      <track
-        default
-        kind="captions"
-        srclang="en"
-        src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].transcript_file }}" />
-    </audio>
+    <picture>
+      <img src="https://fdnd-agency.directus.app/assets/{{ story.image.id | default: "0e52b9bc-fc22-415b-a102-4b7af0e18442" }}" alt="{{ story.image.title }}">
+    </picture>
 
-    <progress max="100" value="60">60%</progress>
-  {% else %}
-    <p>No audio was found for this story.</p>
-  {% endif %}
-</main>
+    {% if story.audio[0].audio_file %}
+      <p class="previous-subtitle"></p>
+      <p class="subtitle"></p>
 
-<script>
-  // https://stackoverflow.com/questions/23475335/subtitles-for-audio-with-track-how-to-display-the-subtitles
-  document.querySelector('audio').textTracks[0].addEventListener('cuechange', function() {
-  document.querySelector('.previous-subtitle').innerText = document.querySelector('.subtitle').innerText;
-  document.querySelector('.subtitle').innerText = this.activeCues[0].text;
-  });
-</script>
+      <div class="audio-controls-container">
+        <button class="button-round purple button-play hidden">
+          <svg
+            class="play"
+            width="800px"
+            height="800px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#FFFFFF">
+            <path
+              stroke="#FFFFFF"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 17.259V6.741a1 1 0 0 1 1.504-.864l9.015 5.26a1 1 0 0 1 0 1.727l-9.015 5.259A1 1 0 0 1 7 17.259Z" />
+          </svg>
 
-{% render 'partials/foot.liquid' %}
+          <svg
+            class="pause hidden"
+            width="800px"
+            height="800px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#FFFFFF">
+            <path
+              stroke="#FFFFFF"
+              stroke-linejoin="round"
+              stroke-width="1"
+              d="M6 6h4v12H6V6ZM14 6h4v12h-4V6Z" />
+          </svg>
+        </button>
+
+        <button class="button-round purple">
+          <svg
+            width="800px"
+            height="800px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none">
+            <g stroke="#FFFFFF" stroke-width="2">
+              <path stroke-linejoin="round" d="M6 9H3v6h3l5 4V5L6 9z" />
+              <path stroke-linecap="round" d="M18.5 5.5a9.192 9.192 0 010 13" />
+              <path stroke-linecap="round" d="M15 8a5.657 5.657 0 010 8" />
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <audio
+        controls
+        crossorigin="anonymous"
+        src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].audio_file }}">
+        <track
+          default
+          kind="captions"
+          srclang="en"
+          src="https://fdnd-agency.directus.app/assets/{{ story.audio[0].transcript_file }}" />
+      </audio>
+
+      <label class="progress-label">
+        <progress max="100" value="60"></progress>
+        <span>0</span>%
+      </label>
+
+    {% else %}
+      <p>No audio was found for this story.</p>
+    {% endif %}
+  </main>
+
+  <script>
+      // https://stackoverflow.com/questions/23475335/subtitles-for-audio-with-track-how-to-display-the-subtitles
+      document.querySelector('audio').textTracks[0].addEventListener('cuechange', function() {
+      document.querySelector('.previous-subtitle').innerText = document.querySelector('.subtitle').innerText;
+      document.querySelector('.subtitle').innerText = this.activeCues[0].text;
+      });
+  </script>
+
+  <script>
+    let playButton = document.querySelector('.button-play');
+    let playIcon = document.querySelector('.play');
+    let pauseIcon = document.querySelector('.pause');
+    let audio = document.querySelector('audio');
+    let audioProgress = document.querySelector('progress');
+    let audioProgressText = document.querySelector('progress + span')
+    
+    playButton.addEventListener('click', toggleAudio);
+    
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        pauseIcon.classList.remove('hidden');
+        playIcon.classList.add('hidden');
+      } else {
+        audio.pause();
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+      }
+    }
+    
+    playButton.classList.remove('hidden');
+    audio.classList.add('hidden');
+    
+    audio.addEventListener("timeupdate", function() {
+    let currentTime = audio.currentTime;
+    let duration = audio.duration;
+    let percentage = Math.round(currentTime / duration * 100);
+    audioProgress.value = percentage;
+    audioProgressText.innerHTML = percentage;
+    });
+  </script>
+
+  {% render 'partials/foot.liquid' %}
