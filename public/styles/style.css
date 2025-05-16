@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: white;
+}
+
+body.lessons {
+    /* fallback */
+    background: #471871;
+    background: var(--background-method);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1 {
+    width: max-content;
+    margin: 1rem auto;
+}
+
+
+h2 {
+    padding-inline-start: 1rem;
+    min-width: max-content;
+}
+
+/* The "progress bar" on the lessons overview page */
+ol.progress {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    padding-inline: 45vw;
+
+    li {
+        width: clamp(15rem, 60vw, 40rem);
+        flex-shrink: 0;
+        border-radius: var(--border-radius);
+        list-style-position: inside;
+        padding: .5rem 1rem;
+        scroll-snap-align: center;
+    }
+
+    li:nth-of-type(1) {
+        background-color: #139943;
+    }
+
+    li:nth-of-type(2) {
+        background-color: #37C6AB;
+    }
+}
+
+/* Styles all cards have in common */
+.playlist-card-vertical,
+.story-card-horizontal {
+    display: grid;
+    list-style: none;
+    background-color: white;
+    color: black;
+    border-radius: var(--border-radius);
+
+    h3 {
+        grid-area: title;
+        margin: 0;
+        align-content: center;
+
+        font-size: 1rem;
+        height: 2lh;
+        color: black;
+        text-wrap: balance;
+    }
+
+    a {
+        color: black;
+    }
+
+    p {
+        grid-area: playtime;
+        margin: 0;
+    }
+
+    picture {
+        grid-area: image;
+
+        img {
+            border-radius: var(--border-radius);
+            object-fit: cover;
+        }
+    }
+}
+
+.playlist-card-vertical {
+    height: 18rem;
+    width: 11rem;
+    padding: 1rem;
+    grid-template-areas:
+    "image image"
+    "title title"
+    "playtime form";
+
+    form {
+        grid-area: form;
+        justify-self: end;
+    }
+}
+
+.story-card-horizontal {
+    height: 6rem;
+    width: clamp(18rem, 80vw, 22rem);
+    padding: 0.5rem;
+
+    grid-template-columns: min-content 1fr;
+    grid-template-areas:
+    "image title"
+    "image playtime";
+    gap: 0.5rem;
+    scroll-snap-align: center;
+
+    p.language {
+        justify-self: end;
+    }
+}
+
+.list-grid,
+.list-horizontal {
+    gap: .5rem;
+    padding-inline-start: 1rem;
+    list-style: none;
+
+    overflow-x: scroll;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.list-grid {
+    display: grid;
+    grid-template-rows: repeat(3, max-content);
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    scroll-snap-type: x mandatory;
+}
+
+.list-horizontal {
+    display: flex;
+    flex-direction: row;
+}

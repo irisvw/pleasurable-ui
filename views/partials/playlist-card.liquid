@@ -1,4 +1,4 @@
-<li>
+<li class="playlist-card-vertical">
   <h3>
     <a href="lessons/playlist/{{ playlist.id }}">{{ playlist.title }}</a>
   </h3>
@@ -16,7 +16,7 @@
       loading="lazy">
   </picture>
 
-  <p>{{ playlist.playtime }}</p>
+  <p class="playtime">{{ playlist.playtime | default: "0m 0s" }}</p>
 
   {% if action == "like" %}
     <form method="post" action="/124/{{ playlist.id }}/like">

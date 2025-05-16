@@ -1,4 +1,4 @@
-<li>
+<li class="story-card-horizontal">
   <h3>
     <a href="lessons/story/{{ story.id }}">{{ story.title }}</a>
   </h3>
@@ -16,6 +16,6 @@
       loading="lazy">
   </picture>
 
-  <p>{{ story.language.language }}</p>
-  <p>{{ story.playtime }}</p>
+  <p class="language">{{ story.language.language }}</p>
+  <p class="playtime">{{ story.playtime }}</p>
 </li>
