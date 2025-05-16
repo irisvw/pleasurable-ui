@@ -69,8 +69,9 @@
           </svg>
         </button>
 
-        <button class="button-round purple">
+        <button class="button-round button-mute purple">
           <svg
+            class="mute-icon"
             width="800px"
             height="800px"
             viewBox="0 0 24 24"
@@ -80,6 +81,19 @@
               <path stroke-linejoin="round" d="M6 9H3v6h3l5 4V5L6 9z" />
               <path stroke-linecap="round" d="M18.5 5.5a9.192 9.192 0 010 13" />
               <path stroke-linecap="round" d="M15 8a5.657 5.657 0 010 8" />
+            </g>
+          </svg>
+          <svg
+            class="unmute-icon hidden"
+            width="800px"
+            height="800px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none">
+            <g stroke="#FFFFFF" stroke-width="2">
+              <path stroke-linejoin="round" d="M7 9H4v6h3l5 4V5L7 9z" />
+              <path stroke-linecap="round" d="M16 9.5l5 5" />
+              <path stroke-linecap="round" d="M21 9.5l-5 5" />
             </g>
           </svg>
         </button>
@@ -97,7 +111,7 @@
       </audio>
 
       <label class="progress-label">
-        <progress max="100" value="60"></progress>
+        <progress max="100" value="0"></progress>
         <span>0</span>%
       </label>
 
@@ -116,13 +130,21 @@
 
   <script>
     let playButton = document.querySelector('.button-play');
+    let muteButton = document.querySelector('.button-mute');
+    
     let playIcon = document.querySelector('.play');
     let pauseIcon = document.querySelector('.pause');
+    
+    let muteIcon = document.querySelector('.mute-icon');
+    let unmuteIcon = document.querySelector('.unmute-icon');
+    
     let audio = document.querySelector('audio');
     let audioProgress = document.querySelector('progress');
-    let audioProgressText = document.querySelector('progress + span')
+    let audioProgressText = document.querySelector('progress + span');
     
     playButton.addEventListener('click', toggleAudio);
+    muteButton.addEventListener('click', toggleSound);
+    audio.addEventListener("timeupdate", updateProgress);
     
     function toggleAudio() {
       if (audio.paused) {
@@ -134,18 +156,30 @@
         playIcon.classList.remove('hidden');
         pauseIcon.classList.add('hidden');
       }
+    };
+    
+    function toggleSound() {
+      if (audio.muted) {
+        audio.muted = false;
+        unmuteIcon.classList.add('hidden');
+        muteIcon.classList.remove('hidden');
+      } else {
+        audio.muted = true;
+        muteIcon.classList.add('hidden');
+        unmuteIcon.classList.remove('hidden');
+      }
+    };
+    
+    function updateProgress() {
+      let currentTime = audio.currentTime;
+      let duration = audio.duration;
+      let percentage = Math.round(currentTime / duration * 100);
+      audioProgress.value = percentage;
+      audioProgressText.innerHTML = percentage;
     }
     
     playButton.classList.remove('hidden');
     audio.classList.add('hidden');
-    
-    audio.addEventListener("timeupdate", function() {
-    let currentTime = audio.currentTime;
-    let duration = audio.duration;
-    let percentage = Math.round(currentTime / duration * 100);
-    audioProgress.value = percentage;
-    audioProgressText.innerHTML = percentage;
-    });
   </script>
 
   {% render 'partials/foot.liquid' %}
