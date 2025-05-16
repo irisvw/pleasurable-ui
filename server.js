@@ -60,7 +60,16 @@ app.get('/lessons', async function (request, response) {
   });
 });
 
-app.post(`/:profile/:playlist/like`, async function (req, res) {
+app.get('/lessons/story/:id', async function (request, response) {
+  const story = await fetch(`${baseURL}story?filter[id][_eq]=${request.params.id}&fields=*.*`);
+  let storyJSON = await story.json();
+
+  response.render('story.liquid', {
+    story: storyJSON.data[0]
+  });
+})
+
+app.post(`/:profile/:playlist/like`, async function (request, response) {
   await fetch(`${baseURL}likes`, {
     method: 'POST',
     body: JSON.stringify({
@@ -72,10 +81,10 @@ app.post(`/:profile/:playlist/like`, async function (req, res) {
     }
   });
 
-  res.redirect(303, '/lessons');
+  response.redirect(303, '/lessons');
 });
 
-app.post('/:profile/:playlist/unlike', async function (req, res) {
+app.post('/:profile/:playlist/unlike', async function (request, response) {
   const like = await fetch(`${baseURL}likes?filter[_and][0][profile][_eq]=${defaultProfile}&filter[_and][1][playlist][_eq]=${req.params.playlist}`);
   const likeJSON = await like.json();
   const likeID = likeJSON.data[0].id;
@@ -84,7 +93,7 @@ app.post('/:profile/:playlist/unlike', async function (req, res) {
     method: 'DELETE'
   });
 
-  res.redirect(303, '/lessons');
+  response.redirect(303, '/lessons');
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
