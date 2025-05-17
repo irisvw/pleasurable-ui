@@ -5,7 +5,6 @@ import express from 'express'
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
-
 console.log('')
 // Doe een fetch naar de data die je nodig hebt
 // const apiResponse = await fetch('...')
@@ -43,8 +42,6 @@ app.get('/', async function (request, response) {
    response.render('index.liquid', { playlists: apiResponseJSON.data});
 });
 
-
-
 app.post('/', async function (request, response) {
 
   response.redirect(303, '/')
@@ -52,10 +49,10 @@ app.post('/', async function (request, response) {
 
 app.get('/playlist', async function (request, response)  {
 
-  const likedapiResponse = await fetch('https://fdnd-agency.directus.app/items/tm_playlist')
-  const likedResponseJSON  = await likedapiResponse.json() 
+  const playlistResponse = await fetch('https://fdnd-agency.directus.app/items/tm_playlist')
+  const playlistResponseJSON = await playlistResponse.json() 
 
-  response.render('playlist.liquid', { playlists: likedResponseJSON.data, succes_message: request.query.succes });
+  response.render('playlist.liquid', { playlists: playlistResponseJSON.data });
 });
 
 
