@@ -1,0 +1,31 @@
+
+<li class="playlist-card-vertical">
+  <h3>
+    <a href="lessons/playlist/{{ playlist.id }}">{{ playlist.title }}</a>
+  </h3>
+
+  <picture>
+    <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ playlist.image.id | default: "2d0c060b-e899-4a81-8e7e-dbd42c666616" }}?format=avif&height=200&width=200,
+    https://fdnd-agency.directus.app/assets/{{ playlist.image.id | default: "2d0c060b-e899-4a81-8e7e-dbd42c666616" }}?format=avif&height=400&width=400 2x">
+    <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ playlist.image.id | default: "2d0c060b-e899-4a81-8e7e-dbd42c666616" }}?format=webp&height=200&width=200,
+    https://fdnd-agency.directus.app/assets/{{ playlist.image.id | default: "2d0c060b-e899-4a81-8e7e-dbd42c666616" }}?format=webp&height=400&width=400 2x">
+    <img
+      src="https://fdnd-agency.directus.app/assets/{{ playlist.image.id | default: "2d0c060b-e899-4a81-8e7e-dbd42c666616" }}"
+      alt="{{ playlist.image.title }}"
+      height="144"
+      width="144"
+      loading="lazy">
+  </picture>
+
+  <p class="playtime">{{ playlist.playtime | default: "0m 0s" }}</p>
+
+  {% if action == "like" %}
+    <form method="post" action="/124/{{ playlist.id }}/like">
+      <button type="submit">Like</button>
+    </form>
+  {% elsif action == "unlike" %}
+    <form method="post" action="/124/{{ playlist.id }}/unlike">
+      <button type="submit">Unlike</button>
+    </form>
+  {% endif %}
+</li>
