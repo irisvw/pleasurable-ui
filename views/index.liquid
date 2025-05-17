@@ -7,3 +7,42 @@
     <li><a href="/playlist-detail">Detail page</a></li>
 </ul>
 <p>Succes!</p>
+{% render 'partials/head.liquid', title: 'Tumi Mundo' %}
+
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/testing">testing</a></li>
+            <li><a href="/lessons">lessons</a></li>
+            <li><a href="/statistics">statistics</a></li>
+            <li><a href="/profile">profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 class="visually-hidden">homepage</h1>
+    <section>
+        <svg></svg>
+        <label>Today's listening
+        <progress>00:00</progress>
+       of your 5-minute goal</label>
+    </section>
+    <section>
+        <div>
+            <p>hello, shall we start with a story?</p>
+            <button></button>
+            <a href="/lessons">let's do it</a>
+        </div>
+        <figure>
+            <svg></svg>
+        </figure>
+    </section>
+    <button class="nav-menu">
+        <svg></svg>
+    </button>
+</main>
+
+{% render 'partials/foot.liquid' %}
