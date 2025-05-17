@@ -57,13 +57,6 @@ app.get('/playlist', async function (request, response)  {
 
 app.set('port', process.env.PORT || 8000)
 
-
-
-// Stel het poortnummer in waar Express op moet gaan luisteren
-// Lokaal is dit poort 8000, als dit ergens gehost wordt, is het waarschijnlijk poort 80
-app.set('port', process.env.PORT || 8001)
-
-// Start Express op, haal daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
   console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
 })
