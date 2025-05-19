@@ -123,8 +123,8 @@
   <script>
       // https://stackoverflow.com/questions/23475335/subtitles-for-audio-with-track-how-to-display-the-subtitles
       document.querySelector('audio').textTracks[0].addEventListener('cuechange', function() {
-      document.querySelector('.previous-subtitle').innerText = document.querySelector('.subtitle').innerText;
-      document.querySelector('.subtitle').innerText = this.activeCues[0].text;
+        document.querySelector('.previous-subtitle').innerText = document.querySelector('.subtitle').innerText;
+        document.querySelector('.subtitle').innerText = this.activeCues[0].text;
       });
   </script>
 
