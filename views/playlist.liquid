@@ -1,8 +1,7 @@
-{% include 'partials/head.liquid' %}
 <body>
-    <div class="header">
+    <header class="header">
         <h1>All stories</h1>
-        
+
         <!-- works without JS -->
         <form method="GET" action="/playlist" class="search-container">
             <label for="searchBar">Search Playlists</label>
@@ -15,49 +14,49 @@
             />
             <button type="submit">Search</button>
         </form>
-        
-        <div class="filters">
-            <button class="animal">animal</button>
-            <button class="season">season</button>
-            <button class="language">language</button>
-            <button class="sorting">sorting</button>
-        </div>
-    </div>
 
-    <div id="playlistList">
+        <nav class="filters">
+            <button class="animal">Animal</button>
+            <button class="season">Season</button>
+            <button class="language">Language</button>
+            <button class="sorting">Sorting</button>
+        </nav>
+    </header>
+
+    <main id="playlistList">
         {% for playlist in playlists %}
-        <div class="playlist-card" data-name="{{ playlist.name | downcase }}" data-lang="{{ playlist.language }}">
-            
+        <article class="playlist-card" data-name="{{ playlist.name | downcase }}" data-lang="{{ playlist.language }}">
+
             {% if playlist.image %}
             <img src="https://fdnd-agency.directus.app/assets/{{ playlist.image }}?width=112&height=95" alt="Image of {{ playlist.name }}">
             {% else %}
             <img src="/assets/pinguin.png" alt="Default playlist image"> 
-            {% endif %} 
+            {% endif %}
 
             <div class="playlist-card-content">
                 <h2>{{ playlist.name }}</h2>
                 <p>{{ playlist.description }}</p>
             </div>
 
-            <!-- Play Button -->
             <button class="play-button">
                 Play {{ playlist.name }}
             </button>
 
-            <!-- Like Button -->
             <form method="POST" action="/like/{{ playlist.id }}" class="like-form">
                 <button type="submit" class="like-button">
-                    <svg class="heart" viewBox="0 0 24 24" role="img">
+                    <svg class="heart" viewBox="0 0 24 24">
                         <title>Like</title>
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 
-                                 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                                 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 
+                                 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+                                 6.86-8.55 11.54L12 21.35z" />
                     </svg>
                     Like
                 </button>
             </form>
-        </div>
+        </article>
         {% endfor %}
-    </div>
+    </main>
 
     {% include 'partials/foot.liquid' %}
 </body>
