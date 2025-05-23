@@ -23,8 +23,13 @@
 
     /* Theme colors */
     --lessons-primary: #9264F4;
+    --lessons-secondary: #5d29ce;
     --confirm-primary: #27B16F;
+    --green-secondary: #008a47;
     --deny-primary: #D51D1D;
+    --red-secondary: #a70303;
+    --white-primary: #fff;
+    --white-secondary: #bebebe;
 
     /* Menu colors */
     --menu-home-primary: #3F92B6;
@@ -48,11 +53,11 @@ body {
 
     /* Typography */
     --font-primary: 'Poppins', sans-serif;
-    
+
     --font-size-xl: 2rem;
     --font-size-l: 1.5rem;
     --font-size-m: 1rem;
-    
+
     --font-weight-bold: 700;
     --font-weight-normal: 500;
     --font-weight-light: 300;
@@ -79,22 +84,38 @@ body {
     &.purple {
         color: white;
         background-color: var(--lessons-primary);
+
+        &:hover {
+            background-color: var(--lessons-secondary);
+        }
     }
 
     &.green {
         color: white;
         background-color: var(--confirm-primary);
+
+        &:hover {
+            background-color: var(--green-secondary);
+        }
     }
 
     &.red {
         color: white;
         background-color: var(--deny-primary);
+
+        &:hover {
+            background-color: var(--red-secondary);
+        }
     }
 
     &.white {
         color: black;
         background-color: white;
         box-shadow: var(--box-shadow-standard);
+
+        &:hover {
+            background-color: var(--white-secondary);
+        }
     }
 
     /* Different menu colors for the navigation buttons */
@@ -170,6 +191,13 @@ body {
     }
 }
 
+.button-standard {
+    &:active {
+        padding: .4rem;
+        margin: .1rem;
+    }
+}
+
 /* A big round button */
 .button-round {
     display: flex;
@@ -184,12 +212,21 @@ body {
         height: 100%;
         width: 100%;
     }
+
+    &:active {
+
+        >img,
+        >svg {
+            height: 90%;
+            width: 90%;
+        }
+    }
 }
 
 /* A big square button */
 .button-square {
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     height: 3rem;
     width: 3rem;
@@ -198,6 +235,15 @@ body {
     >svg {
         height: 100%;
         width: 100%;
+    }
+
+    &:active {
+
+        >img,
+        >svg {
+            height: 90%;
+            width: 90%;
+        }
     }
 }
 
@@ -209,6 +255,7 @@ body {
 
 /* A button that contains an icon */
 .button-icon {
+
     >img,
     >svg {
         vertical-align: bottom;
@@ -245,7 +292,7 @@ body {
 }
 
 /* Searchbox */
-.searchbox {    
+.searchbox {
     display: grid;
     grid-template-columns: 1fr min-content;
 
@@ -301,7 +348,7 @@ body {
 
         margin: 0;
         padding: .5em;
-        
+
         &:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
