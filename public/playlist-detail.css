@@ -13,6 +13,31 @@ body {
     margin: 0 auto;
     padding: 1rem;
 }
+.main-text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main-text h1 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.5rem;
+}
+
+.main-text p {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-normal);
+}
+
+/* Section Title */
+.section-title {
+    text-transform: lowercase;
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1rem;
+    color: white;
+}
+
 /* Playlist Cards */
 #playlist {
     display: flex;
