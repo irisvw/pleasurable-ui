@@ -7,6 +7,12 @@ body {
     padding: 1rem;
 }
 
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
 /* Playlist Cards */
 #playlist {
     display: flex;
