@@ -175,12 +175,6 @@ ol.progress {
     right: 1rem;
     background-color: var(--menu-layover);
 
-    svg {
-      fill-rule: evenodd;
-      fill: #FFF;
-      stroke: #FFF;
-    }
-
     &.toggled {
       filter: invert(1);
     }
@@ -227,31 +221,10 @@ ol.progress {
     gap: 1rem;
 
     justify-content: center;
-    align-items: center;
     align-content: center;
 
     height: 100%;
     margin: auto;
     padding: 0;
     list-style: none;
-
-    li:nth-of-type(1) a {
-      background-color: var(--menu-home-primary);
-    }
-
-    li:nth-of-type(2) a {
-      background-color: var(--menu-testing-primary);
-    }
-
-    li:nth-of-type(3) a {
-      background-color: var(--menu-lessons-primary);
-    }
-
-    li:nth-of-type(4) a {
-      background-color: var(--menu-statistics-primary);
-    }
-
-    li:nth-of-type(5) a {
-      background-color: var(--menu-profile-primary);
-    }
   }
