@@ -174,51 +174,40 @@ body {
     }
 }
 
-/* A big round button */
-.button-round {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 100%;
-
-    >img,
-    >svg {
-        height: 100%;
-        width: 100%;
-    }
-}
-
-/* A big square button */
-.button-square {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    height: 3rem;
-    width: 3rem;
-
-    >img,
-    >svg {
-        height: 100%;
-        width: 100%;
-    }
-}
-
-/* A button that takes up the entire width of the screen */
-.button-wide {
-    width: 100%;
-    text-align: center;
-}
-
-/* A button that contains an icon */
-.button-icon {
+.button-standard {
     >img,
     >svg {
         vertical-align: bottom;
         height: 1.5rem;
         max-width: 1.5rem;
     }
+}
+
+/* Styles that the big round and big square button share*/
+.button-round,
+.button-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    
+    >img,
+    >svg {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/* A big round button */
+.button-round {
+    border-radius: 100%;
+}
+
+/* A button that takes up the entire width of the screen */
+.button-wide {
+    width: 100%;
+    text-align: center;
 }
 
 /* Scroll buttons for navigating through the story overview */
