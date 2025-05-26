@@ -26,6 +26,10 @@
     --confirm-primary: #27B16F;
     --deny-primary: #D51D1D;
 
+    /* Miscellaneous colors */
+    --black-primary: #000000;
+    --white-primary: #FFFFFF;
+
     /* Menu colors */
     --menu-home-primary: #3F92B6;
     --menu-home-secondary: #3D7A95;
@@ -166,6 +170,7 @@ body {
     }
 
     &:hover {
+        text-decoration: none;
         outline: 2px solid black;
     }
 }
