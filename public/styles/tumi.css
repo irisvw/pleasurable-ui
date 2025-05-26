@@ -98,7 +98,6 @@ body {
     &.white {
         color: black;
         background-color: white;
-        box-shadow: var(--box-shadow-standard);
     }
 
     /* Different menu colors for the navigation buttons */
