@@ -3,77 +3,112 @@
 
 {% comment %} TEMPORARY: FOR TESTING PURPOSES {% endcomment %}
 <link rel="stylesheet" href="/styles/style.css">
-<link rel="stylesheet" href="/styles/tumi.css">
-
-<style>
-  .menu-overlay {
-    position: fixed;
-    background-color: var(--menu-layover);
-    height: 90dvh;
-    width: 90dvw;
-  }
-
-  .menu-overlay ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-  
-
-  li:nth-of-type(1) button {
-    background-color: var(--menu-home-primary);
-  }
-
-  li:nth-of-type(2) button {
-    background-color: var(--menu-testing-primary);
-  }
-
-  li:nth-of-type(3) button {
-    background-color: var(--menu-lessons-primary);
-  }
-
-  li:nth-of-type(4) button {
-    background-color: var(--menu-statistics-primary);
-  }
-
-  li:nth-of-type(5) button {
-    background-color: var(--menu-profile-primary);
-  }
-}
-
-.hidden {
-  display: none;
-}
-</style>
 
 <body class="lessons">
 {% comment %} END TEMPORARY {% endcomment %}
-<nav class="menu-overlay">
+ 
+<nav class="menu-overlay hidden">
   <ul>
-    <li><button class="button-square"><svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <path stroke="#000000" stroke-linejoin="round" stroke-width="2" d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
-</svg></button>Home</li>
-    <li><button class="button-square"><svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <path stroke="#000000" stroke-linejoin="round" stroke-width="2" d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
-</svg></button>Testing</li>
-    <li><button class="button-square active"><svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <path stroke="#000000" stroke-linejoin="round" stroke-width="2" d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
-</svg></button>Lessons</li>
-    <li><button class="button-square"><svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <path stroke="#000000" stroke-linejoin="round" stroke-width="2" d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
-</svg></button>Statistics</li>
-    <li><button class="button-square"><svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <path stroke="#000000" stroke-linejoin="round" stroke-width="2" d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
-</svg></button>Profile</li>
-    
+    <li>
+      <a class="button-square">
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none">
+          <path
+            stroke="#000000"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z" />
+        </svg>
+      </a>Home</li>
+    <li>
+      <a class="button-square">
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none">
+          <path
+            stroke="#000000"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z" />
+        </svg>
+      </a>Testing</li>
+    <li>
+      <a class="button-square current">
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none">
+          <path
+            stroke="#000000"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z" />
+        </svg>
+      </a>Lessons</li>
+    <li>
+      <a class="button-square">
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none">
+          <path
+            stroke="#000000"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z" />
+        </svg>
+      </a>Statistics</li>
+    <li>
+      <a class="button-square">
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none">
+          <path
+            stroke="#000000"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 18c0 1.105-1.12 2-2.5 2S4 19.105 4 18s1.12-2 2.5-2 2.5.895 2.5 2zm0 0V7l11-3v11m0 0c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z" />
+        </svg>
+      </a>Profile</li>
+
   </ul>
-  <button class="button-square button-menu-overlay">X</button>
 </nav>
+
+<button class="button-square button-menu-overlay">
+  <svg
+    width="800px"
+    height="800px"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none">
+    <path
+      stroke="#FFFFFF"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6H20M4 12H20M4 18H20" />
+  </svg>
+</button>
+
 <main>
   <header>
     <h1>Lessons</h1>
   </header>
-  
+
   <ol class="progress">
     <li>Listening</li>
     <li>First words</li>
@@ -176,13 +211,3 @@
     </ul>
   </section>
 </main>
-
-<script>
-  let menuOverlayButton = document.querySelector('.button-menu-overlay');
-  let menuOverlay = document.querySelector('.menu-overlay')
-
-  menuOverlayButton.addEventListener('click', () => {
-    menuOverlay.classList.toggle('hidden');
-  });
-
-</script>
