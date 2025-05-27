@@ -1,9 +1,19 @@
-{% comment %} {% render 'partials/head.liquid'
-  , title: 'Lessons' %} {% endcomment %}
+{% render 'partials/head.liquid'
+  , title: 'Lessons' %}
+
+{% comment %} TEMPORARY: FOR TESTING PURPOSES {% endcomment %}
+<link rel="stylesheet" href="/styles/style.css">
+<link rel="stylesheet" href="/styles/tumi.css">
+
+<body class="lessons">
+{% comment %} END TEMPORARY {% endcomment %}
 
 <main>
-  <h1>Lessons</h1>
-  <ol>
+  <header>
+    <h1>Lessons</h1>
+  </header>
+  
+  <ol class="progress">
     <li>Listening</li>
     <li>First words</li>
   </ol>
@@ -13,7 +23,7 @@
       <a href="">Recommended Stories</a>
     </h2>
 
-    <ul>
+    <ul class="list-grid">
       {% for story in stories %}
         {% render 'partials/story-card.liquid'
           , story: story %}
@@ -28,21 +38,20 @@
       <a href="">Your Playlists</a>
     </h2>
 
-    <ul>
+    <ul class="list-horizontal">
       {% for playlist in yourPlaylists %}
         {% render 'partials/playlist-card.liquid'
           , playlist: playlist %}
-      {% else %}
-        <li>No playlists found.</li>
       {% endfor %}
 
-      <li>
+      <li class="playlist-card-vertical">
         <a href="">
           <img
             class="plus"
             src="assets/times.svg"
             alt=""
-            height="144">
+            height="144"
+            width="144">
         </a>
         <h3>Make a playlist!</h3>
         <p>Add your favorite stories in one playlist.</p>
@@ -55,19 +64,16 @@
       <a href="">All Stories</a>
     </h2>
 
-    <ul>
+    <ul class="list-horizontal">
       <li>
-        <a href="/stories/filter?language=1">English</a>
+        <a href="/stories/filter?language=1" class="button-standard white">English</a>
       </li>
       <li>
-        <a href="/stories/filter?language=2">Dutch</a>
-      </li>
-      <li>
-        <a href="/stories">View All</a>
+        <a href="/stories/filter?language=2" class="button-standard white">Dutch</a>
       </li>
     </ul>
 
-    <ul>
+    <ul class="list-grid">
       {% for story in stories %}
         {% render 'partials/story-card.liquid'
           , story: story %}
@@ -82,7 +88,7 @@
       <a href="">Liked Playlists</a>
     </h2>
 
-    <ul>
+    <ul class="list-horizontal">
       {% for playlist in likedPlaylists %}
         {% render 'partials/playlist-card.liquid'
           , playlist: playlist
@@ -98,7 +104,7 @@
       <a href="">Suggested Playlists</a>
     </h2>
 
-    <ul>
+    <ul class="list-horizontal">
       {% for playlist in suggestedPlaylists %}
         {% render 'partials/playlist-card.liquid'
           , playlist: playlist
