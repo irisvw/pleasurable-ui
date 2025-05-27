@@ -1,3 +1,133 @@
+  /* Base */
+  body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--background-method);
+      color: #fff;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    
+    /* Header & Search */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem 1rem 1rem;
+    }
+    
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: 12px;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .search-container label {
+      display: none;
+    }
+    
+    .search-container input {
+      flex: 1;
+      border: none;
+      font-size: 1rem;
+      padding: 0.5rem;
+      outline: none;
+    }
+    
+    .search-container button {
+      background: var(--lessons-primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    
+    .search-container button:hover {
+      background: var( --lessons-primary);
+    }
+    
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    
+    .filters button {
+      background: var(--lessons-primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .filters button:hover {
+      background: var(--lessons-primary);
+    }
+    
+    /* Playlist Cards */
+    #playlistList {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .playlist-card {
+      display: flex;
+      align-items: center;
+      background: white;
+      color: black;
+      border-radius: 16px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    /* Playlist Image */
+    .playlist-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    
+    /* Content */
+    .playlist-card-content {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .playlist-card-content h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.4rem;
+    }
+    
+    .playlist-card-content p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    
     /* Play Button */
     .play-button {
       position: relative;
@@ -32,3 +162,69 @@
     .play-button.loading .play-text {
       display: none;
     }
+    
+    
+    /* Like Button/Form */
+    .like-form {
+      margin-left: auto;
+    }
+    
+    .like-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: var(--deny-primary);
+      font-weight: 600;
+    }
+    
+    .heart {
+      width: 24px;
+      height: 24px;
+      fill:var(--deny-primary);
+      margin-right: 0.25rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      .playlist-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+  }
+      .like-form {
+        align-self: flex-end;
+        margin-left: 0;
+      }
+    
+      .search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    max-width: 700px;
+    margin: 1rem auto;
+    box-shadow: var(--box-shadow-standard);
+    position: relative;
+  }
+
+
+  .search-container input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--box-shadow-standard);
+    background-color: transparent;
+  }
+
+  .search-container input::placeholder {
+    color: white;
+    font-weight: 500;
+  }
+
+  .search-container button[type="submit"] {
+    display: none;
+  }
