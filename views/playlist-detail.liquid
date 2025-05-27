@@ -1,4 +1,5 @@
-<head>
+{% render 'partials/head.liquid', title: 'playlist-detail' %}
+
   <title>Penguin Snow Adventures</title>
 </head>
 <body>
@@ -32,5 +33,4 @@
       {% endfor %}
     </section>
   </main>
-</body>
-</html>
+  {% render 'partials/foot.liquid' %}
