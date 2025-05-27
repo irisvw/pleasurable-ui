@@ -74,6 +74,24 @@
         </article>
         {% endfor %}
     </main>
+    <script>
+        const playButtons = document.querySelectorAll(".play-button");
+      
+        playButtons.forEach(button => {
+          button.addEventListener("click", function () {
+            // Prevent multiple clicks
+            if (button.classList.contains("loading")) return;
+      
+            button.classList.add("loading");
+      
+            setTimeout(() => {
+              button.classList.remove("loading");
+              alert("Playing playlist: " + button.querySelector(".play-text").textContent);
+            }, 2000);
+          });
+        });
+      </script>
+      
 
     {% include 'partials/foot.liquid' %}
 </body>
