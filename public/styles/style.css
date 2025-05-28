@@ -4,7 +4,6 @@
 
 body {
     font-family: var(--font-primary);
-    color: white;
     min-height: 100dvh;
 }
 
@@ -12,6 +11,11 @@ body.lessons {
     /* fallback */
     background: #471871;
     background: var(--background-method);
+    color: white;
+
+    h2 a {
+        color: white;
+    }
 }
 
 header {
@@ -22,7 +26,6 @@ header {
 }
 
 a {
-    color: white;
     text-decoration: none;
     cursor: pointer;
 

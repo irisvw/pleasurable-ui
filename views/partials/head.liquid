@@ -10,11 +10,16 @@
     <link rel="preload" href="/assets/Poppins-Medium.ttf" as="font" type="font/ttf" crossorigin>
 
     <link rel="stylesheet" href="/styles/tumi.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="../homepage.css">
     <link rel="stylesheet" href="../playlist-detail.css">
 
     <script src="/scripts/main.js" defer></script>
     <script src="/scripts/menu.js" defer></script>
   </head>
-  <body>
 
+  {% if class %}
+    <body class="{{ class }}">
+  {% else %}
+    <body>
+  {% endif %}
