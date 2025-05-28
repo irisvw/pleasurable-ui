@@ -53,7 +53,7 @@ app.post('/', async function (request, response) {
   response.redirect(303, '/')
 })
 
-app.get('/playlist', async function (request, response)  {
+app.get('/lessons/playlist', async function (request, response)  {
 
   const playlistResponse = await fetch('https://fdnd-agency.directus.app/items/tm_playlist')
   const playlistResponseJSON = await playlistResponse.json() 
@@ -126,7 +126,7 @@ app.get('/lessons/story/:id', async function (request, response) {
   });
 })
 
-app.get('/playlist-detail', async function (request, response)  {
+app.get('/lessons/playlist-detail', async function (request, response)  {
 
   const playlistdetailResponse = await fetch('https://fdnd-agency.directus.app/items/tm_playlist')
   const playlistdetailResponseJSON = await playlistdetailResponse.json() 
