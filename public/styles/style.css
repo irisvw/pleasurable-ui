@@ -168,6 +168,69 @@ ol.progress {
     flex-direction: row;
 }
 
+/* OVERLAY MENU */
+
+  .button-menu-overlay {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--menu-layover);
+
+    &.toggled {
+      filter: invert(1);
+    }
+  }
+
+  .menu-overlay {
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: var(--menu-layover);
+
+    transition: all 0.3s ease-in-out;
+    transition-behavior: allow-discrete;
+    border-radius: 0;
+
+    @starting-style {
+      top: 100%;
+      bottom: 0;
+      left: 100%;
+      right: 0;
+
+      border-radius: var(--border-radius);
+    }
+
+    &.hidden {
+      top: 100%;
+      bottom: 0;
+      left: 100%;
+      right: 0;
+
+      border-radius: var(--border-radius);
+      display: none;
+    }
+  }
+
+  .menu-overlay ul {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-template-rows: repeat(3, min-content);
+    gap: 1rem;
+
+    justify-content: center;
+    align-content: center;
+
+    height: 100%;
+    margin: auto;
+    padding: 0;
+    list-style: none;
+  }
+
+/* STORY DETAIL PAGE */
 .active-story {
     label {
         min-width: max-content;
@@ -247,3 +310,4 @@ audio {
 .hidden {
     display: none;
 }
+
