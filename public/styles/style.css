@@ -166,3 +166,46 @@ ol.progress {
     display: flex;
     flex-direction: row;
 }
+
+/* FLAGS */
+.dutch,
+.italian,
+.english,
+.french,
+.japanese,
+.german {
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-size: 1.5rem;
+        background-repeat: no-repeat;
+        vertical-align: bottom;
+            margin-left: 1ch;
+    }
+}
+
+.dutch::after {
+    background-image: url("../assets/flags/flag-nl.svg");
+}
+
+.italian::after {
+    background-image: url("../assets/flags/flag-it.svg");
+}
+
+.english::after {
+    background-image: url("../assets/flags/flag-uk.svg");
+}
+
+.french::after {
+    background-image: url("../assets/flags/flag-fr.svg");
+}
+
+.japanese::after {
+    background-image: url("../assets/flags/flag-jp.svg");
+}
+
+.german::after {
+    background-image: url("../assets/flags/flag-de.svg");
+}
