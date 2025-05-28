@@ -126,6 +126,14 @@ app.get('/lessons/story/:id', async function (request, response) {
   });
 })
 
+app.get('/playlist-detail', async function (request, response)  {
+
+  const playlistdetailResponse = await fetch('https://fdnd-agency.directus.app/items/tm_playlist')
+  const playlistdetailResponseJSON = await playlistdetailResponse.json() 
+
+  response.render('playlist-detail.liquid', { playlists: playlistdetailResponseJSON.data });
+});
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
