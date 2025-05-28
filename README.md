@@ -34,27 +34,37 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasur
 
 ### PLaylist overview pagina:
 
-In de playlist overview pagina zie je alle playlists staan, de playlist kun je like, ook heb je een play button om naar de verhalen te kunnen luisteren. Deze pagina lijkt op de all sotries pagina, maar dat is het niet want inplaats van stories zie je hier alle playlists, die je later door een like te geven ook kan toevoegen aan een liked playlist.
+Ik heb gekozen om een playtlist pagina te maken, die bestaat nog niet in de officele tumi mundo design. Voor deze pagina heb ik gedacht om inspiratie te halen iut de stories pagina, in plaats van " All stories" heb ik ervoor gekozen om het playlists te noemen. Voor het stylen van deze pagina heb ik in mijn stylsheet gebruikt, die komt overeen met de officiele styleguide van Tumi Mundo, denk aan kleuren, font etc.
+
+Ik heb hiervoor ook geen data uit de stories API gehaald maar van de playlists. Aangezien ik een andere soort pagina wil maken, die bestaat uit verschillende soorten playlists.
 
 <img width="388" alt="Screenshot 2025-05-20 at 10 09 58" src="https://github.com/user-attachments/assets/33cc79ae-4c38-4421-8917-e97bbe4a4e21" />
 
-In de volgende issue zie je wat voor code ik heb gebruikt om deze pagina te bouwen.
+In de volgende issue zie je wat voor html code ik heb gebruikt om deze pagina te bouwen .
 
 [Playlist overview HTML prototype #9](https://github.com/irisvw/pleasurable-ui/issues/9)
+
+In de volgende issue zie je wat voor css code ik heb gebruikt om deze pagina te stylen. 
+
+https://github.com/irisvw/pleasurable-ui/issues/39
 
 
 ### PLaylist detail pagina:
 
-In de detailpage kom je terecht na het klikken op een playlist van de playlist overview pagina. Hier zie je de playlist die zijn toegevoegd met de play button, like button en de tekst uit de api.
+In de detailpage kom je terecht na het klikken op een playlist van de playlist overview pagina. Hier zie je de playlist die zijn toegevoegd met de play button, like button en de tekst uit de API. Voor het stylen van deze pagina heb ik in mijn stylsheet gebruikt, die komt overeen met de officiele styleguide van Tumi Mundo, denk aan kleuren, font etc.
 
 
 <img width="216" alt="Screenshot 2025-05-15 at 13 47 16" src="https://github.com/user-attachments/assets/27dbf54e-1bc4-4a02-8f2e-ab5ff0e4d2aa" />
 
 
 
-In de volgende issue zie wat voor code ik heb gebruikt om deze pagina de bouwen.
+In de volgende issue zie wat voor html code ik heb gebruikt om deze pagina de bouwen.
 https://github.com/irisvw/pleasurable-ui/issues/11
 
+
+In de volgende issue zie je wat voor css code ik heb gebruikt om deze pagina te stylen.
+
+https://github.com/irisvw/pleasurable-ui/issues/40
 
 ## Prototype
 
