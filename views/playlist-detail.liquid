@@ -1,0 +1,36 @@
+<head>
+  <title>Penguin Snow Adventures</title>
+</head>
+<body>
+  <main class="container">
+    <section class="pinguin-image">
+      <img src="/assets/penguin.png" alt="penguin-image">
+    </section>
+
+    <section class="main-text">
+      <h1>Penguin snow adventures</h1>
+      <p>All the stories about Loeky! Here are all Daan’s favorite stories that he can listen to before bed time or at the start of the day.</p>
+    </section>
+
+    <section class="section-title">recommended</section>
+
+    <section id="playlist">
+      {% for playlist in playlists %}
+      <article class="playlist-card" data-name="{{ playlist.name | downcase }}" data-lang="{{ playlist.language }}">
+        
+        {% if playlist.image %}
+        <img src="https://fdnd-agency.directus.app/assets/{{ playlist.image }}?width=112&height=95" alt="image-of {{ playlist.name }}">
+        {% else %}
+        <img src="/assets/penguin.png" alt="default-image"> 
+        {% endif %} 
+
+        <div class="playlist-card-content">
+          <h2>{{ playlist.name }}</h2>
+          <p>{{ playlist.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>
