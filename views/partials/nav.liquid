@@ -1,7 +1,11 @@
 <nav class="menu-overlay hidden">
   <ul>
     <li>
-      <a class="button-square menu-home">
+      {% if active == 'home' %}
+      <a href="/" class="button-square menu-home current">
+      {% else %}
+      <a href="/" class="button-square menu-home">
+      {% endif %}
         <svg
           width="800px"
           height="800px"
@@ -31,7 +35,11 @@
         </svg>
       </a>Testing</li>
     <li>
-      <a class="button-square menu-lessons current">
+      {% if active == 'lessons' %}
+      <a href="/lessons" class="button-square menu-lessons current">
+      {% else %}
+      <a href="/lessons" class="button-square menu-lessons">
+      {% endif %}
         <svg
           width="800px"
           height="800px"

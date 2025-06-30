@@ -33,25 +33,22 @@ app.engine('liquid', engine.express());
 
 // Stel de map met Liquid templates in
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
-app.set('views', './views')
+app.set('views', './views');
 
 // Variables
 const baseURL = "https://fdnd-agency.directus.app/items/tm_";
 const defaultProfile = 124;
 
 app.get('/', async function (request, response) {
-  const apiResponse = await fetch ('https://fdnd-agency.directus.app/items/tm_playlist');
-
-  const apiResponseJSON = await apiResponse.json ();
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid', { playlists: apiResponseJSON.data});
+   response.render('index.liquid');
 });
 
-app.post('/', async function (request, response) {
+// app.post('/', async function (request, response) {
 
-  response.redirect(303, '/')
-})
+//   response.redirect(303, '/')
+// })
 
 app.get('/lessons/playlist', async function (request, response)  {
 
@@ -86,7 +83,7 @@ app.post('/:profile/:playlist/unlike', async function (request, response) {
   });
 
   response.redirect(303, '/lessons');
-})
+});
 
 app.get('/lessons', async function (request, response) {
   let stories = await fetch(`${baseURL}story?fields=*.*`);
