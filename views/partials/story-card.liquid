@@ -16,6 +16,6 @@
       loading="lazy">
   </picture>
 
-  <p class="language">{{ story.language.language }}</p>
+  <p class="language {{ story.language.language | downcase }}">{{ story.language.language }}</p>
   <p class="playtime">{{ story.playtime }}</p>
 </li>
