@@ -20,7 +20,27 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasur
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
+TuMi Mundo is een app waarmee jonge kinderen in een meertalige omgeving kunnen opgroeien. Wij hebben gewerkt aan de 'Lessons' overzichtspagina, een playlist overzichtspagina, een playlist detailpagina en een story detailpagina. De 'lessons' pagina bevat een overzicht van alle stories en playlists die je kunt beluisteren. Je kunt je eigen playlists bekijken, direct navigeren naar een overzicht van alle stories, of je gelikede playlists zien. Ook is er een sectie van gesuggereerde playlists.
 
+<img src="https://github.com/user-attachments/assets/4b2216ae-c93a-4530-bcd8-8c303399c1a2" height="250">
+<img src="https://github.com/user-attachments/assets/d27641e8-5ec6-4391-8cf3-87302b670dda" height="250">
+<img src="https://github.com/user-attachments/assets/5659fea8-cee7-4e20-bf4e-31ebe1d40310" height="250">
+<img src="https://github.com/user-attachments/assets/7b0e98bb-bda6-4e64-bc6f-64952a6bbab5" height="250">
+
+## Gebruik
+
+#### Hamburger Menu
+Vanaf het hamburger menu, dat zich altijd rechtsonderin het scherm bevindt, kan de gebruiker navigeren naar de verschillende secties van de app. De sectie waar de gebruiker zich momenteel bevind is dik omlijnd om dat duidelijk te maken.
+
+<img src="https://github.com/user-attachments/assets/9189fac0-701b-4c55-bdc2-3f78e2c0a25b" height="250">
+
+#### Story Detail Pagina
+Als de gebruiker een story selecteert, komen zij hier terecht. Hier kan de gebruiker de story afspelen en pauzeren. Ook kan de gebruiker de audio muten en unmuten zodat de gebruiker eventueel de story zelf voor kan lezen. De subtitles werken met cuechanges zodat deze gesynchroniseerd is met de audio. Ten slotte is er een voortgangsbalk waar de gebruiker kan zien hoe ver die is in het verhaal.
+
+<img src="https://github.com/user-attachments/assets/468ee34d-8d70-49bf-bc8f-4df2378b63e5" height="250">
+
+
+#### 
 
 ## Ontwerpkeuzes
 
