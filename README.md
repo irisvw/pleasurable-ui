@@ -1,11 +1,5 @@
 # Tumi Mundo
 
-
-
-
-
-
-
 Ontwerp en maak met een team voor een opdrachtgever een interface waar gebruikers blij van worden.
 
 De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/INSTRUCTIONS.md)
@@ -32,9 +26,9 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasur
 
 
 
-### PLaylist overview pagina:
+### Playlist overview pagina:
 
-Ik heb gekozen om een playtlist pagina te maken, die bestaat nog niet in de officele tumi mundo design. Voor deze pagina heb ik gedacht om inspiratie te halen iut de stories pagina, in plaats van " All stories" heb ik ervoor gekozen om het playlists te noemen. Voor het stylen van deze pagina heb ik in mijn stylsheet gebruikt, die komt overeen met de officiele styleguide van Tumi Mundo, denk aan kleuren, font etc.
+Ik heb gekozen om een playlist pagina te maken, die bestaat nog niet in de officele tumi mundo design. Voor deze pagina heb ik gedacht om inspiratie te halen iut de stories pagina, in plaats van " All stories" heb ik ervoor gekozen om het playlists te noemen. Voor het stylen van deze pagina heb ik in mijn stylesheet gebruikt, die komt overeen met de officiele styleguide van Tumi Mundo, denk aan kleuren, font etc.
 
 Ik heb hiervoor ook geen data uit de stories API gehaald maar van de playlists. Aangezien ik een andere soort pagina wil maken, die bestaat uit verschillende soorten playlists.
 
@@ -49,7 +43,7 @@ In de volgende issue zie je wat voor css code ik heb gebruikt om deze pagina te 
 https://github.com/irisvw/pleasurable-ui/issues/39
 
 
-### PLaylist detail pagina:
+### Playlist detail pagina:
 
 In de detailpage kom je terecht na het klikken op een playlist van de playlist overview pagina. Hier zie je de playlist die zijn toegevoegd met de play button, like button en de tekst uit de API. Voor het stylen van deze pagina heb ik in mijn stylsheet gebruikt, die komt overeen met de officiele styleguide van Tumi Mundo, denk aan kleuren, font etc.
 
@@ -68,14 +62,14 @@ https://github.com/irisvw/pleasurable-ui/issues/40
 
 ## Prototype
 
-### Pleasearable micro interaction like button
+### Pleasurable micro interaction like button
 
 Voor de pleasurable micro interactie van data heb ik de like functie gekozen. De like button wordt rood ingekleurd bij het klikken,als animatie word de het hart rood ingekleurd.
 
 
 https://github.com/user-attachments/assets/a7ffca04-471c-469b-aec9-f82afea1130a
 
-### Pleasearable fetch interaction searchbutton
+### Pleasurable fetch interaction searchbutton
 
 Voor de pleasurable laag voor het fetchen heb ik de searchbar gekozen, als eerst krijg je een vergrootglas te zien. Als je daarop klikt dan wordt de searchbar open geklapt, je kan vervolgens zoeken naar de juiste playlist.
 
@@ -185,8 +179,23 @@ link figma: https://www.figma.com/design/qLcAMX3o2fGREz8CYb7uQt/TUMI?node-id=147
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
 
+#### Custom Audio Controls
+Op de story detail pagina hebben we custom audio controls gemaakt. Indien JavaScript niet wordt ondersteund, wordt de standaard audio player van de browser weergegeven.
+
+De subtitles worden weergegeven doormiddel van JavaScript, door te luisteren naar het 'cuechange' event.
+https://github.com/irisvw/pleasurable-ui/blob/aa90a906fdb2056a9f399f872183da72b3cc500e/views/story.liquid#L125-L127
+
+Onder de subtitles staat ook een custom progress balk, die wordt geupdate op basis van het 'timeupdate' event.
+https://github.com/irisvw/pleasurable-ui/blob/aa90a906fdb2056a9f399f872183da72b3cc500e/views/story.liquid#L147
+
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+1. Navigeer naar nodejs.org en installeer de NodeJS ontwikkelomgeving. Kies voor NodeJS 22.16.0 with long-term support, download de benodigde bestanden en doorloop het installatieproces.
+2. Fork daarna deze repository en clone deze op jouw computer.
+3. Open deze repository in je editor, bijvoorbeeld VS code.
+4. Voer in de terminal het commando `npm install` uit
+5. Start de site op door in de terminal het commando `npm start` uit te voeren.
+
 
 ## Bronnen
 
