@@ -171,21 +171,21 @@ ol.progress {
     flex-direction: row;
 }
 
-/* OVERLAY MENU */
-
-  .button-menu-overlay {
+.button-menu-overlay {
     position: fixed;
+    z-index: 1;
     bottom: 1rem;
     right: 1rem;
     background-color: var(--menu-layover);
 
     &.toggled {
-      filter: invert(1);
+        filter: invert(1);
     }
-  }
+}
 
-  .menu-overlay {
+.menu-overlay {
     position: fixed;
+    z-index: 1;
 
     top: 0;
     bottom: 0;
@@ -199,26 +199,26 @@ ol.progress {
     border-radius: 0;
 
     @starting-style {
-      top: 100%;
-      bottom: 0;
-      left: 100%;
-      right: 0;
+        top: 100%;
+        bottom: 0;
+        left: 100%;
+        right: 0;
 
-      border-radius: var(--border-radius);
+        border-radius: var(--border-radius);
     }
 
     &.hidden {
-      top: 100%;
-      bottom: 0;
-      left: 100%;
-      right: 0;
+        top: 100%;
+        bottom: 0;
+        left: 100%;
+        right: 0;
 
-      border-radius: var(--border-radius);
-      display: none;
+        border-radius: var(--border-radius);
+        display: none;
     }
-  }
+}
 
-  .menu-overlay ul {
+.menu-overlay ul {
     display: grid;
     grid-template-columns: repeat(2, min-content);
     grid-template-rows: repeat(3, min-content);
@@ -231,7 +231,7 @@ ol.progress {
     margin: auto;
     padding: 0;
     list-style: none;
-  }
+}
 
 /* STORY DETAIL PAGE */
 .active-story {
@@ -314,3 +314,45 @@ audio {
     display: none;
 }
 
+/* FLAGS */
+.dutch,
+.italian,
+.english,
+.french,
+.japanese,
+.german {
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-size: 1.5rem;
+        background-repeat: no-repeat;
+        vertical-align: bottom;
+        margin-left: 1ch;
+    }
+}
+
+.dutch::after {
+    background-image: url("../assets/flags/flag-nl.svg");
+}
+
+.italian::after {
+    background-image: url("../assets/flags/flag-it.svg");
+}
+
+.english::after {
+    background-image: url("../assets/flags/flag-uk.svg");
+}
+
+.french::after {
+    background-image: url("../assets/flags/flag-fr.svg");
+}
+
+.japanese::after {
+    background-image: url("../assets/flags/flag-jp.svg");
+}
+
+.german::after {
+    background-image: url("../assets/flags/flag-de.svg");
+}
