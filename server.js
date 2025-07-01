@@ -66,7 +66,7 @@ app.post(`/:profile/:playlist/like`, async function (request, response) {
     method: 'POST',
     body: JSON.stringify({
       profile: defaultProfile,
-      playlist: req.params.playlist,
+      playlist: request.params.playlist,
     }),
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
@@ -77,7 +77,7 @@ app.post(`/:profile/:playlist/like`, async function (request, response) {
 });
 
 app.post('/:profile/:playlist/unlike', async function (request, response) {
-  const like = await fetch(`${baseURL}likes?filter[_and][0][profile][_eq]=${defaultProfile}&filter[_and][1][playlist][_eq]=${req.params.playlist}`);
+  const like = await fetch(`${baseURL}likes?filter[_and][0][profile][_eq]=${defaultProfile}&filter[_and][1][playlist][_eq]=${request.params.playlist}`);
   const likeJSON = await like.json();
   const likeID = likeJSON.data[0].id;
 
